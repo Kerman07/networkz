@@ -1,0 +1,104 @@
+html {
+  font-family: "Sansita Swashed", cursive;
+}
+
+.all-posts {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  text-align: center;
+}
+
+.card {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.pagination {
+  font-size: 20px;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.current {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.pagination .fas {
+  margin-left: 10px;
+  margin-right: 10px;
+  color: white;
+}
+
+.fa-heart {
+  pointer-events: none;
+  font-size: 23px;
+}
+
+.edit-btn {
+  font-size: 13px;
+  background-color: khaki;
+  margin-bottom: 10px;
+  float: right;
+}
+
+.navbar-brand {
+  font-family: "Great Vibes", cursive;
+  font-size: 35px;
+  font-weight: bolder;
+}
+
+.nav-links {
+  float: right;
+  margin-right: 0;
+  margin-left: auto;
+  text-align: right;
+}
+
+.body {
+  background-color: rgb(100, 100, 100);
+  color: white;
+  min-height: 100vh;
+}
+
+.card {
+  color: black;
+  border-radius: 10px;
+}
+
+#text {
+  border-radius: 0.5rem;
+  padding: 5px;
+}
+
+.card-headers {
+  display: inline-flex;
+  text-align: none;
+  min-width: 19rem;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.card-title {
+  text-align: left;
+}
+
+.auth-container {
+  padding-top: 25px;
+  max-width: 40%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#posts {
+  padding-top: 15px;
+}
+
+.nav-item {
+  color: black;
+  font-weight: 500;
+  margin-right: 5px;
+}

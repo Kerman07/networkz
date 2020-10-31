@@ -1,0 +1,78 @@
+{% extends "network/layout.html" %} {% block title %} {{ profile.username }} -
+Profile {% endblock %} {% block body %}
+<div class="all-posts container">
+  <h2>
+    {{ profile.username }} {% if user.id != profile.id and not is_following %}
+    <button class="btn btn-success" id="follow">Follow</button>
+    {% elif user.id != profile.id and is_following %}
+    <button class="btn btn-danger" id="follow">Unfollow</button>
+    {% endif %}
+  </h2>
+  <div class="">Following: {{ following }}</div>
+  <div class="" id="followers">Followers: {{ followers }}</div>
+  <h4>{{ profile.username }}'s posts:</h4>
+  <div id="posts">
+    {% if page_obj %} {% for post in page_obj %}
+    <div
+      class="card"
+      style="width: 22rem; margin-left: auto; margin-right: auto"
+      id="d{{ post.id }}"
+    >
+      <div class="card-body">
+        <div class="card-headers">
+          {% if user.id != post.user.id and user.is_authenticated %}
+          <a
+            href="#"
+            class="card-link"
+            id="p{{ post.id }}"
+            style="margin-right: 0; margin-left: auto;"
+          >
+            {% if post.liked %}
+            <i class="fas fa-heart"></i>
+            {% else %}
+            <i class="far fa-heart"></i>
+            {% endif %}
+          </a>
+          {% endif %} {% if user.id == post.user.id %}
+          <button class="btn btn-warning edit-btn" id="b{{ post.id }}">
+            Edit
+          </button>
+          {% endif %}
+        </div>
+        <p class="card-text" id="post-content">{{ post.content }}</p>
+        <p class="card-text">{{ post.time_posted }}</p>
+        <p class="card-text" id="p{{ post.id }}p">
+          <i class="fab fa-gratipay"></i> {{ post.likes }}
+        </p>
+      </div>
+      </div>
+      {% endfor %} {% endif %}
+    </div>
+    <footer>
+      <div class="pagination">
+        <span class="step-links">
+          {% if page_obj.has_previous %}
+          <a href="?page=1"><i class="fas fa-angle-double-left"></i></a>
+          <a href="?page={{ page_obj.previous_page_number }}"
+            ><i class="fas fa-angle-left"></i
+          ></a>
+          {% endif %}
+
+          <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+          </span>
+
+          {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}"
+            ><i class="fas fa-angle-right"></i
+          ></a>
+          <a href="?page={{ page_obj.paginator.num_pages }}"
+            ><i class="fas fa-angle-double-right"></i
+          ></a>
+          {% endif %}
+        </span>
+      </div>
+    </footer>
+  </div>
+  {% endblock %}
+</div>
