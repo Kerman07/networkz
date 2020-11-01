@@ -71,6 +71,7 @@ html {
 #text {
   border-radius: 0.5rem;
   padding: 5px;
+  width: 95%;
 }
 
 .card-headers {
